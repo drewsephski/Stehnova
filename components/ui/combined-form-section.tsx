@@ -94,16 +94,19 @@ export function CombinedFormSection() {
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center pb-4">
-            <a 
-              href="mailto:stehnovaholdings@hotmail.com" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center justify-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect width="20" height="16" x="2" y="4" rx="2"/>
-                <path d="m22 7-8.97 5.7-1.66-2.03"/>
-              </svg>
-              stehnovaholdings@hotmail.com
-            </a>
+            <div className="flex flex-col items-center gap-3">
+              <p className="text-sm text-muted-foreground">Or email us directly:</p>
+              <a
+                href="mailto:stehnovaholdings@hotmail.com?subject=Inquiry from Stehnova Website"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-foreground rounded-lg transition-all duration-200 hover:scale-105"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7-1.66-2.03"/>
+                </svg>
+                <span className="font-medium">stehnovaholdings@hotmail.com</span>
+              </a>
+            </div>
           </CardContent>
           <CardContent>
             <div className="flex gap-2 mb-6">

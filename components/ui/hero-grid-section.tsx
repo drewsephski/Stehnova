@@ -57,7 +57,7 @@ export function HeroGrid({
     className,
 }: HeroGridSectionProps) {
     return (
-        <section className={cn("relative min-h-[calc(630px-var(--header-height))] overflow-hidden pt-20 pb-10", className)}>
+        <section className={cn("relative min-h-[calc(630px-var(--header-height))] overflow-hidden pt-12 pb-20", className)}>
         <div className="absolute left-0 top-0 z-0 h-full w-full">
           {/* Gradient Grid Background */}
           <div 
@@ -112,7 +112,7 @@ export function HeroGrid({
         {/* --- */}
         <div className="relative z-10 flex flex-col divide-y divide-border">
             <div className="flex flex-col items-center justify-end">
-                <div className="flex items-center gap-3 !border !border-b-0 border-border px-2">
+                <div className="flex items-center gap-3 !border !border-b-0 border-border">
                     {/* Logo */}
                     <div className="flex">
                         {
@@ -121,7 +121,7 @@ export function HeroGrid({
                                     key={avatar.id}
                                     src={avatar.src}
                                     alt={avatar.alt}
-                                    className="h-46 w-46 rounded-full transition-all duration-300 hover:scale-110"
+                                    className="h-50 w-50 rounded-full transition-all duration-300 hover:scale-110"
                                 />
                             ))
                         }
