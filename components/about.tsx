@@ -12,22 +12,22 @@ export default function About() {
   };
 
   const narrative =
-    "Stehnova Holdings LLC was founded on a simple premise: smaller real estate deals deserve the same analytical rigor and operational discipline applied to institutional transactions.";
+    "Stehnova Holdings LLC was founded on a simple premise: small deals deserve the same analytical rigor and operational discipline applied to institutional transactions.";
 
   const narrative2 =
-    "We identify undervalued properties in emerging markets, apply operational expertise to unlock value, and deliver returns through disciplined redevelopment.";
+    "In addition to real estate, we selectively pursue strategic investments aligned with long-term capital preservation and growth.";
 
   const narrative3 =
     "We believe that value creation happens through active management—not just capital allocation. That's why we don't acquire and forget.";
 
   const mission =
-    "To generate superior risk-adjusted returns through disciplined value-add real estate investment while building lasting partnerships with investors, operators, and communities.";
+    "To generate superior risk-adjusted returns through disciplined investment while building lasting partnerships with investors, operators, and communities.";
 
   const vision =
-    "To become the trusted partner for value-add real estate investment in our target markets, known for operational excellence, transparent communication, and consistent execution.";
+    "To become the trusted partner for disciplined investment in our target markets, known for operational excellence, transparent communication, and consistent execution.";
 
   // Key words to trigger the effect
-  const triggers = ["Stehnova", "rigor", "discipline", "value", "operational", "returns", "active", "management", "excellence", "transparent"];
+  const triggers = ["Stehnova", "rigor", "discipline", "value", "operational", "returns", "active", "management", "excellence", "transparent", "long-term"];
 
   return (
     <section className="min-h-screen bg-background flex items-center justify-center p-4 md:p-6 lg:p-12 py-8 md:py-12 relative overflow-hidden">
@@ -85,17 +85,17 @@ export default function About() {
             >
               <HyperTextParagraph
                 text={narrative}
-                highlightWords={triggers}
+                highlightWords={[...triggers, "long-term"]}
                 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-[1.2] tracking-tight"
               />
               <HyperTextParagraph
                 text={narrative2}
-                highlightWords={triggers}
+                highlightWords={[...triggers, "long-term"]}
                 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-[1.2] tracking-tight"
               />
               <HyperTextParagraph
                 text={narrative3}
-                highlightWords={triggers}
+                highlightWords={[...triggers, "long-term"]}
                 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-[1.2] tracking-tight"
               />
             </motion.div>

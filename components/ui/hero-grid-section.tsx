@@ -26,7 +26,7 @@ export function HeroGridSection() {
     <HeroGrid
       avatars={AVATARS}
       title="Strategic Investments & Property Redevelopment"
-      subtitle="Stehnova Holdings LLC identifies underperforming properties in emerging markets, applies operational expertise to unlock value, and delivers returns through disciplined redevelopment."
+      subtitle="Identifying undervalued opportunities and unlocking value through disciplined execution across real assets and strategic investments."
       primaryCtaText="Explore Opportunities"
       secondaryCtaText="Our Approach"
       onPrimaryCtaClick={() => scrollToSection('contact')}
@@ -49,7 +49,7 @@ interface HeroGridSectionProps {
 export function HeroGrid({
     avatars = AVATARS,
     title = "Strategic Investments & Property Redevelopment",
-    subtitle = "Stehnova Holdings LLC identifies underperforming properties in emerging markets, applies operational expertise to unlock value, and delivers returns through disciplined redevelopment.",
+    subtitle = "Identifying undervalued opportunities and unlocking value through disciplined execution across real assets and strategic investments.",
     primaryCtaText = "Explore Opportunities",
     secondaryCtaText = "Our Approach",
     onPrimaryCtaClick,
