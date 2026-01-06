@@ -22,7 +22,6 @@ export function CombinedFormSection() {
     formData.append('formType', formType)
     
     try {
-      // Replace 'YOUR_FORMSPREE_FORM_ID' with your actual Formspree form ID
       const response = await fetch('https://formspree.io/f/xnjneapa', {
         method: 'POST',
         body: formData,
@@ -95,8 +94,8 @@ export function CombinedFormSection() {
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center pb-4">
-            <a
-              href="mailto:stehnovaholdings@hotmail.com"
+            <a 
+              href="mailto:stehnovaholdings@hotmail.com" 
               className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center justify-center gap-2"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -106,6 +105,7 @@ export function CombinedFormSection() {
               stehnovaholdings@hotmail.com
             </a>
           </CardContent>
+          <CardContent>
             <div className="flex gap-2 mb-6">
               <Button
                 variant={formType === 'contact' ? 'default' : 'outline'}
