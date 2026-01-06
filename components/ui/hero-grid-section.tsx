@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"
 import { ReactNode } from "react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 interface Avatar {
     id: number;
@@ -112,7 +113,7 @@ export function HeroGrid({
         {/* --- */}
         <div className="relative z-10 flex flex-col divide-y divide-border">
             <div className="flex flex-col items-center justify-end">
-                <div className="flex items-center gap-3 !border !border-b-0 border-border px-4 py-2">
+                <div className="flex items-center justify-between w-full !border !border-b-0 border-border px-4 py-2">
                     {/* Logo */}
                     <div className="flex">
                         {
@@ -126,6 +127,8 @@ export function HeroGrid({
                             ))
                         }
                     </div>
+                    {/* Theme Toggle */}
+                    <ModeToggle />
                 </div>
             </div>
             <div>

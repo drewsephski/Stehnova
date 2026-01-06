@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
           <footer className="border-t border-border bg-background py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
