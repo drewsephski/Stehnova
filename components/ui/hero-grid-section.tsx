@@ -113,8 +113,8 @@ export function HeroGrid({
         <div className="relative z-10 flex flex-col divide-y divide-border">
             <div className="flex flex-col items-center justify-end">
                 <div className="flex items-center gap-3 !border !border-b-0 border-border">
-                    {/* Logo */}
-                    <div className="flex">
+                    {/* Logo - Hidden on mobile */}
+                    <div className="hidden md:flex">
                         {
                             avatars.map((avatar) => (
                                 <img
@@ -129,25 +129,25 @@ export function HeroGrid({
                 </div>
             </div>
             <div>
-                <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-16 lg:px-24">
-                    <h1 className="!max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-1.44px] text-foreground md:tracking-[-2.16px]">
+                <div className="mx-auto flex min-h-[200px] md:min-h-[288px] max-w-[90vw] md:max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-4 py-4 sm:px-16 lg:px-24">
+                    <h1 className="!max-w-screen-lg text-pretty text-center text-[clamp(28px,8vw,64px)] font-medium leading-none tracking-[-1.44px] text-foreground md:tracking-[-2.16px]">
                         {title}
                     </h1>
-                    <h2 className="text-md max-w-2xl text-pretty text-center text-muted-foreground md:text-lg">
+                    <h2 className="text-sm md:text-md max-w-2xl text-pretty text-center text-muted-foreground md:text-lg">
                         {subtitle}
                     </h2>
                 </div>
             </div>
-            <div className="flex items-start justify-center px-8.25 sm:px-24">
-                <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
-                    <Button 
-                        className="max-w-sm:!border-x-0 flex w-full !border-x !border-y-0 border-border bg-primary backdrop-blur-xl transition-colors duration-150 hover:!bg-primary/80 !h-14 flex-col items-center justify-center rounded-none !text-base cursor-pointer text-primary-foreground"
+            <div className="flex items-start justify-center px-4 sm:px-8.25 md:px-24">
+                <div className="flex w-full max-w-[90vw] md:max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
+                    <Button
+                        className="max-w-sm:!border-x-0 flex w-full !border-x !border-y-0 border-border bg-primary backdrop-blur-xl transition-colors duration-150 hover:!bg-primary/80 !h-12 md:!h-14 flex-col items-center justify-center rounded-none !text-sm md:!text-base cursor-pointer text-primary-foreground"
                         onClick={onPrimaryCtaClick}
                     >
                         {primaryCtaText}
                     </Button>
-                    <Button 
-                        className="!h-14 flex-col items-center justify-center rounded-none !text-base flex w-full max-w-sm:!border-x-0 !border-x !border-y-0 border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 cursor-pointer" 
+                    <Button
+                        className="!h-12 md:!h-14 flex-col items-center justify-center rounded-none !text-sm md:!text-base flex w-full max-w-sm:!border-x-0 !border-x !border-y-0 border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 cursor-pointer"
                         variant="outline"
                         onClick={onSecondaryCtaClick}
                     >

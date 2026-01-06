@@ -13,7 +13,7 @@ export default function About() {
   const triggers = ["Strategic", "investment", "analysis", "opportunities", "partnerships", "growth"];
 
   return (
-    <section className="min-h-screen bg-background flex items-center justify-center p-6 md:p-12 relative overflow-hidden">
+    <section className="min-h-screen bg-background flex items-center justify-center p-4 md:p-6 lg:p-12 relative overflow-hidden">
       {/* Background Ambience - subtle like testimonial */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[120px]" />
@@ -21,9 +21,9 @@ export default function About() {
 
       {/* Main content - match testimonial layout */}
       <div className="relative z-10 w-full max-w-7xl">
-        {/* Left column - vertical text like testimonial */}
+        {/* Left column - vertical text like testimonial - hidden on mobile */}
         <div className="flex">
-          <div className="flex flex-col items-center justify-center pr-16 border-r border-border">
+          <div className="hidden md:flex flex-col items-center justify-center pr-16 border-r border-border">
             <motion.span
               className="text-xs font-mono text-muted-foreground tracking-widest uppercase"
               style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
@@ -45,7 +45,7 @@ export default function About() {
           </div>
 
           {/* Center - main content */}
-          <div className="flex-1 pl-16 py-12">
+          <div className="flex-1 pl-0 md:pl-16 py-8 md:py-12 px-2 md:px-0">
             {/* Company badge - similar to testimonial */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -69,12 +69,12 @@ export default function About() {
               <HyperTextParagraph
                 text={bio}
                 highlightWords={triggers}
-                className="text-5xl md:text-6xl font-light text-foreground leading-[1.1] tracking-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-foreground leading-[1.1] tracking-tight"
               />
               <HyperTextParagraph
                 text={bio2}
                 highlightWords={triggers}
-                className="text-5xl md:text-6xl font-light text-foreground leading-[1.1] tracking-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-foreground leading-[1.1] tracking-tight"
               />
             </motion.div>
 
@@ -83,17 +83,17 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="flex items-center gap-4 mt-12"
+              className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mt-8 md:mt-12"
             >
               <motion.div
-                className="w-8 h-px bg-foreground"
+                className="w-8 h-px bg-foreground hidden md:block"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 style={{ originX: 0 }}
               />
               <div>
-                <p className="text-sm text-muted-foreground font-mono">Real Estate Investment • Property Redevelopment • Strategic Asset Management</p>
+                <p className="text-xs md:text-sm text-muted-foreground font-mono leading-relaxed">Real Estate Investment • Property Redevelopment • Strategic Asset Management</p>
               </div>
             </motion.div>
           </div>

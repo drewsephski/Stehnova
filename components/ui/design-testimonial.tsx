@@ -64,10 +64,10 @@ export function Testimonial() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background overflow-hidden">
-      <div ref={containerRef} className="relative w-full max-w-7xl" onMouseMove={handleMouseMove}>
-        {/* Oversized index number - positioned to bleed off left edge */}
+      <div ref={containerRef} className="relative w-full max-w-7xl px-4 md:px-0" onMouseMove={handleMouseMove}>
+        {/* Oversized index number - positioned to bleed off left edge - hidden on mobile */}
         <motion.div
-          className="absolute -left-8 top-1/2 -translate-y-1/2 text-[28rem] font-bold text-foreground/[0.03] select-none pointer-events-none leading-none tracking-tighter"
+          className="absolute -left-8 top-1/2 -translate-y-1/2 text-[20rem] md:text-[28rem] font-bold text-foreground/[0.03] select-none pointer-events-none leading-none tracking-tighter hidden md:block"
           style={{ x: numberX, y: numberY }}
         >
           <AnimatePresence mode="wait">
@@ -86,8 +86,8 @@ export function Testimonial() {
 
         {/* Main content - asymmetric layout */}
         <div className="relative flex">
-          {/* Left column - vertical text */}
-          <div className="flex flex-col items-center justify-center pr-16 border-r border-border">
+          {/* Left column - vertical text - hidden on mobile */}
+          <div className="hidden md:flex flex-col items-center justify-center pr-16 border-r border-border">
             <motion.span
               className="text-xs font-mono text-muted-foreground tracking-widest uppercase"
               style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
@@ -111,7 +111,7 @@ export function Testimonial() {
           </div>
 
           {/* Center - main content */}
-          <div className="flex-1 pl-16 py-12">
+          <div className="flex-1 pl-0 md:pl-16 py-8 md:py-12">
             {/* Company badge */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -130,11 +130,11 @@ export function Testimonial() {
             </AnimatePresence>
 
             {/* Quote with character reveal */}
-            <div className="relative mb-12 min-h-[140px]">
+            <div className="relative mb-8 md:mb-12 min-h-[100px] md:min-h-[140px]">
               <AnimatePresence mode="wait">
                 <motion.blockquote
                   key={activeIndex}
-                  className="text-4xl md:text-5xl font-light text-foreground leading-[1.15] tracking-tight"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light text-foreground leading-[1.15] tracking-tight"
                   initial="hidden"
                   animate="visible"
                   exit="exit"
@@ -170,7 +170,7 @@ export function Testimonial() {
             </div>
 
             {/* Author row */}
-            <div className="flex items-end justify-between">
+            <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 md:gap-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
@@ -182,24 +182,24 @@ export function Testimonial() {
                 >
                   {/* Animated line before name */}
                   <motion.div
-                    className="w-8 h-px bg-foreground"
+                    className="w-8 h-px bg-foreground hidden md:block"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     style={{ originX: 0 }}
                   />
                   <div>
-                    <p className="text-base font-medium text-foreground">{current.author}</p>
-                    <p className="text-sm text-muted-foreground">{current.role}</p>
+                    <p className="text-sm md:text-base font-medium text-foreground">{current.author}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">{current.role}</p>
                   </div>
                 </motion.div>
               </AnimatePresence>
 
               {/* Navigation */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 w-full md:w-auto justify-center">
                 <motion.button
                   onClick={goPrev}
-                  className="group relative w-12 h-12 rounded-full border border-border flex items-center justify-center overflow-hidden"
+                  className="group relative w-10 h-10 md:w-12 md:h-12 rounded-full border border-border flex items-center justify-center overflow-hidden"
                   whileTap={{ scale: 0.95 }}
                 >
                   <motion.div
@@ -208,8 +208,8 @@ export function Testimonial() {
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <svg
-                    width="18"
-                    height="18"
+                    width="16"
+                    height="16"
                     viewBox="0 0 16 16"
                     fill="none"
                     className="relative z-10 text-foreground group-hover:text-foreground/30 transition-colors"
@@ -226,7 +226,7 @@ export function Testimonial() {
 
                 <motion.button
                   onClick={goNext}
-                  className="group relative w-12 h-12 rounded-full border border-border flex items-center justify-center overflow-hidden"
+                  className="group relative w-10 h-10 md:w-12 md:h-12 rounded-full border border-border flex items-center justify-center overflow-hidden"
                   whileTap={{ scale: 0.95 }}
                 >
                   <motion.div
@@ -235,8 +235,8 @@ export function Testimonial() {
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <svg
-                    width="18"
-                    height="18"
+                    width="16"
+                    height="16"
                     viewBox="0 0 16 16"
                     fill="none"
                     className="relative z-10 text-foreground group-hover:text-foreground/30 transition-colors"

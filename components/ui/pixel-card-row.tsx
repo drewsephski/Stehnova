@@ -42,20 +42,22 @@ function FeatureCard({ title, description, variant, icon }: FeatureCardProps) {
   const hoverColors = getHoverColors();
 
   return (
-    <PixelCard 
-      variant={variant} 
-      className="group cursor-pointer transition-all duration-300 hover:scale-102 hover:shadow-lg h-[280px] w-full"
+    <PixelCard
+      variant={variant}
+      className="group cursor-pointer transition-all duration-300 hover:scale-102 hover:shadow-lg h-[240px] md:h-[280px] w-full"
     >
-      <div className="absolute inset-0 p-6 text-center flex flex-col justify-center items-center z-10">
+      <div className="absolute inset-0 p-4 md:p-6 text-center flex flex-col justify-center items-center z-10">
         {icon && (
-          <div className={`mb-4 group-hover:scale-105 transition-all duration-300 ${hoverColors.icon}`}>
-            {icon}
+          <div className={`mb-3 md:mb-4 group-hover:scale-105 transition-all duration-300 ${hoverColors.icon}`}>
+            <div className="w-6 h-6 md:w-8 md:h-8">
+              {icon}
+            </div>
           </div>
         )}
-        <h3 className={`text-xl font-bold mb-2 transition-all duration-300 text-foreground ${hoverColors.title}`}>
+        <h3 className={`text-base md:text-lg lg:text-xl font-bold mb-1.5 md:mb-2 transition-all duration-300 text-foreground ${hoverColors.title}`}>
           {title}
         </h3>
-        <p className={`text-sm font-medium leading-relaxed transition-all duration-300 text-muted-foreground ${hoverColors.description}`}>
+        <p className={`text-xs md:text-sm font-medium leading-relaxed transition-all duration-300 text-muted-foreground ${hoverColors.description}`}>
           {description}
         </p>
       </div>
@@ -92,18 +94,18 @@ export function PixelCardRow() {
   ];
 
   return (
-    <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-4">
             Building Our Foundation
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Establishing the strategic framework and operational capabilities for long-term real estate investment success
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {features.map((feature, index) => (
             <div 
               key={index}
