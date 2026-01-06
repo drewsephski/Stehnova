@@ -38,8 +38,13 @@ export default function RootLayout({
                 <div className="text-sm text-muted-foreground">
                   © 2026 Stehnova Holdings LLC. All rights reserved.
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  Real Estate Investment • Property Redevelopment • Strategic Asset Management
+                <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+                  <div className="text-sm text-muted-foreground">
+                    Real Estate Investment • Property Redevelopment • Strategic Asset Management
+                  </div>
+                  <a href="mailto:stehnovaholdings@hotmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    stehnovaholdings@hotmail.com
+                  </a>
                 </div>
               </div>
             </div>

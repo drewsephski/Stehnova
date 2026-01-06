@@ -3,13 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"
 import { ReactNode } from "react";
-import { ModeToggle } from "@/components/mode-toggle";
+import { Navbar } from "@/components/ui/navbar";
 
 interface Avatar {
     id: number;
     src: string;
     alt: string;
-};
+}
 
 const AVATARS: Avatar[] = [
     { id: 1, src: "/stehnova.png", alt: "Stehnova Holdings LLC logo" },
@@ -58,7 +58,8 @@ export function HeroGrid({
     className,
 }: HeroGridSectionProps) {
     return (
-        <section className={cn("relative min-h-[calc(630px-var(--header-height))] overflow-hidden pt-20 pb-10", className)}>
+        <section className={cn("relative min-h-screen overflow-hidden", className)}>
+        <Navbar />
         <div className="absolute left-0 top-0 z-0 h-full w-full">
           {/* Gradient Grid Background */}
           <div 
@@ -111,46 +112,25 @@ export function HeroGrid({
         <figure className="pointer-events-none absolute left-[4vw] top-[64px] z-20 hidden aspect-square w-[32vw] rounded-full bg-card/50 opacity-50 blur-[100px] md:block" />
         <figure className="pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden aspect-square w-[30vw] rounded-full bg-card/50 opacity-50 blur-[100px] md:block" />
         {/* --- */}
-        <div className="relative z-10 flex flex-col divide-y divide-border">
-            <div className="flex flex-col items-center justify-end">
-                <div className="flex items-center justify-between w-full !border !border-b-0 border-border px-4 py-2">
-                    {/* Logo */}
-                    <div className="flex">
-                        {
-                            avatars.map((avatar) => (
-                                <img
-                                    key={avatar.id}
-                                    src={avatar.src}
-                                    alt={avatar.alt}
-                                    className="h-36 w-36 rounded-full transition-all duration-300 hover:scale-110"
-                                />
-                            ))
-                        }
-                    </div>
-                    {/* Theme Toggle */}
-                    <ModeToggle />
-                </div>
-            </div>
-            <div>
-                <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-16 lg:px-24">
-                    <h1 className="!max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-1.44px] text-foreground md:tracking-[-2.16px]">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] pt-20">
+            <div className="text-center space-y-8 px-4 max-w-5xl">
+                <div className="space-y-4">
+                    <h1 className="!max-w-screen-lg text-pretty text-[clamp(40px,8vw,72px)] font-bold leading-none tracking-[-1.44px] text-foreground md:tracking-[-2.16px] animate-in fade-in slide-in-from-bottom-8 duration-1000">
                         {title}
                     </h1>
-                    <h2 className="text-md max-w-2xl text-pretty text-center text-muted-foreground md:text-lg">
+                    <h2 className="text-lg md:text-xl max-w-3xl mx-auto text-pretty text-muted-foreground animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
                         {subtitle}
                     </h2>
                 </div>
-            </div>
-            <div className="flex items-start justify-center px-8.25 sm:px-24">
-                <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                     <Button 
-                        className="max-w-sm:!border-x-0 flex w-full !border-x !border-y-0 border-border bg-primary backdrop-blur-xl transition-colors duration-150 hover:!bg-primary/80 !h-14 flex-col items-center justify-center rounded-none !text-base cursor-pointer text-primary-foreground"
+                        className="w-full sm:w-auto px-8 h-14 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105"
                         onClick={onPrimaryCtaClick}
                     >
                         {primaryCtaText}
                     </Button>
                     <Button 
-                        className="!h-14 flex-col items-center justify-center rounded-none !text-base flex w-full max-w-sm:!border-x-0 !border-x !border-y-0 border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 cursor-pointer" 
+                        className="w-full sm:w-auto px-8 h-14 text-base font-semibold border-2 border-border bg-transparent hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105"
                         variant="outline"
                         onClick={onSecondaryCtaClick}
                     >

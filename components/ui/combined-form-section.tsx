@@ -94,7 +94,18 @@ export function CombinedFormSection() {
               Choose how you&apos;d like to connect with us below.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="text-center pb-4">
+            <a
+              href="mailto:stehnovaholdings@hotmail.com"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center justify-center gap-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7-1.66-2.03"/>
+              </svg>
+              stehnovaholdings@hotmail.com
+            </a>
+          </CardContent>
             <div className="flex gap-2 mb-6">
               <Button
                 variant={formType === 'contact' ? 'default' : 'outline'}
