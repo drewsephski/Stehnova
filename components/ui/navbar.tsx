@@ -25,7 +25,7 @@ export function Navbar({ className }: NavbarProps) {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img
-              src="/stehnova.png"
+              src="/stehnova2.png"
               alt="Stehnova Holdings LLC logo"
               className="h-20 w-20 rounded-full transition-all duration-300 hover:scale-110"
             />

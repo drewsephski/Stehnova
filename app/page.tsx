@@ -30,11 +30,17 @@ export default function Page() {
       />
       <div className="relative z-10 w-full">
         <Navbar />
-        <HeroGridSection />
+        <section id="hero">
+          <HeroGridSection />
+        </section>
         <PixelCardRow />
         <Testimonial />
-        <About />
-        <CombinedFormSection />
+        <section id="about">
+          <About />
+        </section>
+        <section id="contact">
+          <CombinedFormSection />
+        </section>
       </div>
     </main>
   )

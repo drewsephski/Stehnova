@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={figtree.variable}>
+    <html lang="en" className={figtree.variable} style={{ scrollBehavior: 'smooth' }}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,10 +37,11 @@ export default function RootLayout({
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 {/* Company Info */}
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-foreground">Stehnova Holdings LLC</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Real Estate Investment • Property Redevelopment • Strategic Asset Management
-                  </p>
+                  <img
+                    src="/stehnova.png"
+                    alt="Stehnova Holdings LLC logo"
+                    className="h-56 w-56 rounded-full"
+                  />
                 </div>
 
                 {/* Quick Links */}
