@@ -57,7 +57,7 @@ export function HeroGrid({
     className,
 }: HeroGridSectionProps) {
     return (
-        <section className={cn("relative min-h-[calc(630px-var(--header-height))] overflow-hidden pt-12 pb-20", className)}>
+        <section className={cn("relative min-h-[calc(100vh-var(--header-height))] md:min-h-[calc(630px-var(--header-height))] overflow-hidden pt-12 pb-20", className)}>
         <div className="absolute left-0 top-0 z-0 h-full w-full">
           {/* Gradient Grid Background */}
           <div 
