@@ -5,21 +5,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Field, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-type FormType = 'contact' | 'careers'
+type ContactPath = 'deal' | 'investment' | 'careers'
 
 export function CombinedFormSection() {
-  const [formType, setFormType] = useState<FormType>('contact')
+  const [contactPath, setContactPath] = useState<ContactPath>('deal')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
+  // Listen for careers tab selection event
+  useEffect(() => {
+    const handleSelectCareersTab = () => {
+      setContactPath('careers')
+      setSubmitted(false)
+    }
+
+    window.addEventListener('selectCareersTab', handleSelectCareersTab)
+    return () => {
+      window.removeEventListener('selectCareersTab', handleSelectCareersTab)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
     const formData = new FormData(e.currentTarget)
-    formData.append('formType', formType)
+    formData.append('contactPath', contactPath)
     
     try {
       const response = await fetch('https://formspree.io/f/xnjneapa', {
@@ -44,6 +57,28 @@ export function CombinedFormSection() {
     setIsSubmitting(false)
   }
 
+  const getSuccessMessage = () => {
+    switch (contactPath) {
+      case 'deal':
+        return "Thank you for submitting your deal. We'll review it and get back to you soon."
+      case 'investment':
+        return "Thank you for your interest in investing with Stehnova. We'll be in touch shortly."
+      case 'careers':
+        return "Thank you for your interest in joining our team. We'll review your application and get back to you soon."
+    }
+  }
+
+  const getSubmitButtonText = () => {
+    switch (contactPath) {
+      case 'deal':
+        return "Submit Deal"
+      case 'investment':
+        return "Submit Inquiry"
+      case 'careers':
+        return "Submit Application"
+    }
+  }
+
   if (submitted) {
     return (
       <section id="contact" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
@@ -52,10 +87,7 @@ export function CombinedFormSection() {
             <CardHeader className="text-center px-4 md:px-6">
               <CardTitle className="text-xl md:text-2xl">Message Received!</CardTitle>
               <CardDescription className="text-sm md:text-base">
-                {formType === 'careers'
-                  ? "Thank you for your interest in joining our team. We'll review your application and get back to you soon."
-                  : "Thank you for reaching out. We'll get back to you as soon as possible."
-                }
+                {getSuccessMessage()}
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center px-4 md:px-6">
@@ -96,7 +128,7 @@ export function CombinedFormSection() {
           </CardHeader>
           <CardContent className="text-center pb-4 px-4 md:px-6">
             <div className="flex flex-col items-center gap-3">
-              <p className="text-xs md:text-sm text-muted-foreground">Or email us directly:</p>
+              <p className="text-xs md:text-sm text-muted-foreground">Prefer email?</p>
               <a
                 href="mailto:stehnovaholdings@hotmail.com?subject=Inquiry from Stehnova Website"
                 className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-primary/10 hover:bg-primary/20 text-foreground rounded-lg transition-all duration-200 hover:scale-105 text-sm md:text-base"
@@ -110,20 +142,27 @@ export function CombinedFormSection() {
             </div>
           </CardContent>
           <CardContent className="px-4 md:px-6">
-            <div className="flex gap-2 mb-6">
+            <div className="flex flex-col md:flex-row gap-2 mb-6">
               <Button
-                variant={formType === 'contact' ? 'default' : 'outline'}
-                onClick={() => setFormType('contact')}
+                variant={contactPath === 'deal' ? 'default' : 'outline'}
+                onClick={() => setContactPath('deal')}
                 className="flex-1 text-sm md:text-base"
               >
-                Contact Us
+                Submit a Deal
               </Button>
               <Button
-                variant={formType === 'careers' ? 'default' : 'outline'}
-                onClick={() => setFormType('careers')}
+                variant={contactPath === 'investment' ? 'default' : 'outline'}
+                onClick={() => setContactPath('investment')}
                 className="flex-1 text-sm md:text-base"
               >
-                Careers / Internships
+                Investment Inquiry
+              </Button>
+              <Button
+                variant={contactPath === 'careers' ? 'default' : 'outline'}
+                onClick={() => setContactPath('careers')}
+                className="flex-1 text-sm md:text-base"
+              >
+                Careers
               </Button>
             </div>
             
@@ -175,7 +214,7 @@ export function CombinedFormSection() {
                 />
               </Field>
               
-              {formType === 'careers' && (
+              {contactPath === 'careers' && (
                 <>
                   <Field>
                     <FieldLabel htmlFor="position" className="text-sm md:text-base">Position of Interest</FieldLabel>
@@ -213,15 +252,18 @@ export function CombinedFormSection() {
               
               <Field>
                 <FieldLabel htmlFor="message" className="text-sm md:text-base">
-                  {formType === 'careers' ? 'Cover Letter / Why You Want to Join' : 'Message'}
+                  {contactPath === 'careers' ? 'Cover Letter / Why You Want to Join' :
+                   contactPath === 'investment' ? 'Tell Us About Your Investment Goals' : 'Describe Your Property'}
                 </FieldLabel>
                 <Textarea
                   id="message"
                   name="message"
                   placeholder={
-                    formType === 'careers'
+                    contactPath === 'careers'
                       ? "Tell us about yourself and why you're interested in this position..."
-                      : "Tell us about your investment goals and how we can help..."
+                      : contactPath === 'investment'
+                      ? "Tell us about your investment goals and how we can help..."
+                      : "Tell us about the property, including address, asking price, and key details..."
                   }
                   rows={5}
                   required
@@ -229,18 +271,18 @@ export function CombinedFormSection() {
                 />
               </Field>
               
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full text-sm md:text-base"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Sending..." : formType === 'careers' ? "Submit Application" : "Send Message"}
+                {isSubmitting ? "Sending..." : getSubmitButtonText()}
               </Button>
             </form>
           </CardContent>
         </Card>
         
-        {formType === 'careers' && (
+        {contactPath === 'careers' && (
           <div className="mt-8 md:mt-12 text-center">
             <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 md:mb-3">
               Current Opportunities

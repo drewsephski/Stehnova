@@ -1,19 +1,36 @@
 "use client";
 import HyperTextParagraph from "@/components/ui/hyper-text-with-decryption";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function About() {
-  const bio =
-    "Strategic real estate investment through disciplined analysis.";
+  const scrollToContact = () => {
+    const element = document.getElementById('contact')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  };
 
-  const bio2 =
-    "Building capital structures for long-term growth.";
+  const narrative =
+    "Stehnova Holdings LLC was founded on a simple premise: smaller real estate deals deserve the same analytical rigor and operational discipline applied to institutional transactions.";
+
+  const narrative2 =
+    "We identify undervalued properties in emerging markets, apply operational expertise to unlock value, and deliver returns through disciplined redevelopment.";
+
+  const narrative3 =
+    "We believe that value creation happens through active management—not just capital allocation. That's why we don't acquire and forget.";
+
+  const mission =
+    "To generate superior risk-adjusted returns through disciplined value-add real estate investment while building lasting partnerships with investors, operators, and communities.";
+
+  const vision =
+    "To become the trusted partner for value-add real estate investment in our target markets, known for operational excellence, transparent communication, and consistent execution.";
 
   // Key words to trigger the effect
-  const triggers = ["Strategic", "investment", "analysis", "opportunities", "partnerships", "growth"];
+  const triggers = ["Stehnova", "rigor", "discipline", "value", "operational", "returns", "active", "management", "excellence", "transparent"];
 
   return (
-    <section className="min-h-screen bg-background flex items-center justify-center p-4 md:p-6 lg:p-12 relative overflow-hidden">
+    <section className="min-h-screen bg-background flex items-center justify-center p-4 md:p-6 lg:p-12 py-8 md:py-12 relative overflow-hidden">
       {/* Background Ambience - subtle like testimonial */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[120px]" />
@@ -45,7 +62,7 @@ export default function About() {
           </div>
 
           {/* Center - main content */}
-          <div className="flex-1 pl-0 md:pl-16 py-8 md:py-12 px-2 md:px-0">
+          <div className="flex-1 pl-0 md:pl-16 py-6 md:py-12 px-2 md:px-0">
             {/* Company badge - similar to testimonial */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -64,32 +81,79 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8"
+              className="space-y-6 md:space-y-8"
             >
               <HyperTextParagraph
-                text={bio}
+                text={narrative}
                 highlightWords={triggers}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-foreground leading-[1.1] tracking-tight"
+                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-[1.2] tracking-tight"
               />
               <HyperTextParagraph
-                text={bio2}
+                text={narrative2}
                 highlightWords={triggers}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-foreground leading-[1.1] tracking-tight"
+                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-[1.2] tracking-tight"
               />
+              <HyperTextParagraph
+                text={narrative3}
+                highlightWords={triggers}
+                className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light text-foreground leading-[1.2] tracking-tight"
+              />
+            </motion.div>
+
+            {/* Mission and Vision */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="mt-12 md:mt-16 space-y-6 md:space-y-8"
+            >
+              <div className="border-l-4 border-primary pl-6">
+                <h3 className="text-sm md:text-base font-mono text-muted-foreground uppercase tracking-wider mb-3">
+                  Mission
+                </h3>
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
+                  {mission}
+                </p>
+              </div>
+              
+              <div className="border-l-4 border-primary/70 pl-6">
+                <h3 className="text-sm md:text-base font-mono text-muted-foreground uppercase tracking-wider mb-3">
+                  Vision
+                </h3>
+                <p className="text-base md:text-lg text-foreground leading-relaxed">
+                  {vision}
+                </p>
+              </div>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              className="mt-12 md:mt-16"
+            >
+              <Button
+                onClick={scrollToContact}
+                size="lg"
+                className="w-full md:w-auto px-8 py-6 text-base md:text-lg"
+              >
+                Partner With Us
+              </Button>
             </motion.div>
 
             {/* Footer info - similar to author info in testimonial */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mt-8 md:mt-12"
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mt-12 md:mt-16"
             >
               <motion.div
                 className="w-8 h-px bg-foreground hidden md:block"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
                 style={{ originX: 0 }}
               />
               <div>

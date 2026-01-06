@@ -132,10 +132,10 @@ const VARIANTS = {
     noFocus: false,
   },
   blue: {
-    activeColor: "#e0f2fe",
-    gap: 10,
+    activeColor: "#0ea5e9",
+    gap: 6,
     speed: 10,
-    colors: "#e0f2fe,#7dd3fc,#0ea5e9",
+    colors: "#0ea5e9,#0284c7,#0369a1",
     noFocus: false,
   },
   yellow: {
@@ -265,7 +265,7 @@ export default function PixelCard({
     let allIdle = true;
     for (let i = 0; i < pixelsRef.current.length; i++) {
       const pixel = pixelsRef.current[i];
-      // @ts-expect-error
+      // @ts-expect-error - Dynamic method access on Pixel class
       pixel[fnName]();
       if (!pixel.isIdle) {
         allIdle = false;

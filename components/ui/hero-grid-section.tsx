@@ -25,12 +25,12 @@ export function HeroGridSection() {
   return (
     <HeroGrid
       avatars={AVATARS}
-      title="Strategic Real Estate Investment & Property Redevelopment"
-      subtitle="Stehnova Holdings LLC: Applying disciplined market research and on-the-ground analysis to identify value-add real estate opportunities."
-      primaryCtaText="Contact Us"
-      secondaryCtaText="Learn More"
+      title="Strategic Investments & Property Redevelopment"
+      subtitle="Stehnova Holdings LLC identifies underperforming properties in emerging markets, applies operational expertise to unlock value, and delivers returns through disciplined redevelopment."
+      primaryCtaText="Explore Opportunities"
+      secondaryCtaText="Our Approach"
       onPrimaryCtaClick={() => scrollToSection('contact')}
-      onSecondaryCtaClick={() => scrollToSection('features')}
+      onSecondaryCtaClick={() => scrollToSection('about')}
     />
    );
 }
@@ -48,16 +48,16 @@ interface HeroGridSectionProps {
 
 export function HeroGrid({
     avatars = AVATARS,
-    title = "Strategic Real Estate Investment & Property Redevelopment",
-    subtitle = "Stehnova Holdings LLC: Applying disciplined market research and on-the-ground analysis to identify value-add real estate opportunities.",
-    primaryCtaText = "Contact Us",
-    secondaryCtaText = "Learn More",
+    title = "Strategic Investments & Property Redevelopment",
+    subtitle = "Stehnova Holdings LLC identifies underperforming properties in emerging markets, applies operational expertise to unlock value, and delivers returns through disciplined redevelopment.",
+    primaryCtaText = "Explore Opportunities",
+    secondaryCtaText = "Our Approach",
     onPrimaryCtaClick,
     onSecondaryCtaClick,
     className,
 }: HeroGridSectionProps) {
     return (
-        <section className={cn("relative min-h-[calc(100vh-var(--header-height))] overflow-hidden pt-12 pb-20", className)}>
+        <section className={cn("relative min-h-[calc(80vh-var(--header-height))] md:min-h-[calc(100vh-var(--header-height))] overflow-hidden pt-8 md:pt-12 pb-16 md:pb-20", className)}>
         <div className="absolute left-0 top-0 z-0 h-full w-full">
           {/* Gradient Grid Background */}
           <div 
@@ -129,7 +129,7 @@ export function HeroGrid({
                 </div>
             </div>
             <div>
-                <div className="mx-auto flex min-h-[200px] md:min-h-[288px] max-w-[90vw] md:max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-4 py-4 sm:px-16 lg:px-24">
+                <div className="mx-auto flex min-h-[250px] md:min-h-[288px] max-w-[80vw] md:max-w-[55vw] shrink-0 flex-col items-center justify-center gap-2 px-4 py-6 md:py-4 sm:px-16 lg:px-24">
                     <h1 className="!max-w-screen-lg text-pretty text-center text-[clamp(28px,8vw,64px)] font-medium leading-none tracking-[-1.44px] text-foreground md:tracking-[-2.16px]">
                         {title}
                     </h1>
@@ -138,8 +138,8 @@ export function HeroGrid({
                     </h2>
                 </div>
             </div>
-            <div className="flex items-start justify-center px-4 sm:px-8.25 md:px-24">
-                <div className="flex w-full max-w-[90vw] md:max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
+            <div className="flex items-start justify-center px-4 sm:px-8.25 md:px-24 pb-4">
+                <div className="flex w-full max-w-[70vw] md:max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
                     <Button
                         className="max-w-sm:!border-x-0 flex w-full !border-x !border-y-0 border-border bg-primary backdrop-blur-xl transition-colors duration-150 hover:!bg-primary/80 !h-12 md:!h-14 flex-col items-center justify-center rounded-none !text-sm md:!text-base cursor-pointer text-primary-foreground"
                         onClick={onPrimaryCtaClick}

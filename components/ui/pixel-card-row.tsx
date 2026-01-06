@@ -10,36 +10,11 @@ interface FeatureCardProps {
 }
 
 function FeatureCard({ title, description, variant, icon }: FeatureCardProps) {
-  const getHoverColors = () => {
-    switch (variant) {
-      case "blue":
-        return {
-          title: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
-          description: "group-hover:text-blue-500 dark:group-hover:text-blue-300",
-          icon: "group-hover:text-blue-600 dark:group-hover:text-blue-400"
-        };
-      case "yellow":
-        return {
-          title: "group-hover:text-yellow-600 dark:group-hover:text-yellow-400", 
-          description: "group-hover:text-yellow-500 dark:group-hover:text-yellow-300",
-          icon: "group-hover:text-yellow-600 dark:group-hover:text-yellow-400"
-        };
-      case "red":
-        return {
-          title: "group-hover:text-red-600 dark:group-hover:text-red-400",
-          description: "group-hover:text-red-500 dark:group-hover:text-red-300",
-          icon: "group-hover:text-red-600 dark:group-hover:text-red-400"
-        };
-      default:
-        return {
-          title: "group-hover:text-slate-600 dark:group-hover:text-slate-400",
-          description: "group-hover:text-slate-500 dark:group-hover:text-slate-300",
-          icon: "group-hover:text-slate-600 dark:group-hover:text-slate-400"
-        };
-    }
+  const hoverColors = {
+    title: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
+    description: "group-hover:text-blue-500 dark:group-hover:text-blue-300",
+    icon: "group-hover:text-blue-600 dark:group-hover:text-blue-400"
   };
-
-  const hoverColors = getHoverColors();
 
   return (
     <PixelCard
@@ -74,27 +49,27 @@ export function PixelCardRow() {
       icon: <TrendingUp className="w-8 h-8" />
     },
     {
-      title: "Market Analysis", 
+      title: "Market Analysis",
       description: "Applying disciplined market research and on-the-ground analysis to identify value-add real estate opportunities.",
-      variant: "default" as const,
+      variant: "blue" as const,
       icon: <Search className="w-8 h-8" />
     },
     {
       title: "Capital Formation",
       description: "Building strategic partnerships and establishing capital structures to support future acquisition and development activities.",
-      variant: "yellow" as const,
+      variant: "blue" as const,
       icon: <Handshake className="w-8 h-8" />
     },
     {
       title: "Growth Planning",
       description: "Focused on building a diversified asset portfolio designed to support long-term stability and growth.",
-      variant: "red" as const,
+      variant: "blue" as const,
       icon: <BarChart3 className="w-8 h-8" />
     }
   ];
 
   return (
-    <section id="features" className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="features" className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-4">
