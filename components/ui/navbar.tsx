@@ -17,17 +17,17 @@ export function Navbar({ className }: NavbarProps) {
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl",
+      "top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl h-20",
       className
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img
               src="/stehnova.png"
               alt="Stehnova Holdings LLC logo"
-              className="h-12 w-12 rounded-full transition-all duration-300 hover:scale-110"
+              className="h-20 w-20 rounded-full transition-all duration-300 hover:scale-110"
             />
             <div className="flex flex-col">
               <span className="text-lg font-semibold text-foreground tracking-tight">

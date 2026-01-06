@@ -2,6 +2,7 @@ import { Testimonial } from "@/components/ui/design-testimonial"
 import About from "@/components/about"
 import { HeroGridSection } from "@/components/ui/hero-grid-section"
 import { PixelCardRow } from "@/components/ui/pixel-card-row"
+import { Navbar } from "@/components/ui/navbar"
 import { CombinedFormSection } from "@/components/ui/combined-form-section"
 
 export default function Page() {
@@ -28,6 +29,7 @@ export default function Page() {
         }}
       />
       <div className="relative z-10 w-full">
+        <Navbar />
         <HeroGridSection />
         <PixelCardRow />
         <Testimonial />
