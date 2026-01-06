@@ -23,7 +23,7 @@ export function CombinedFormSection() {
     
     try {
       // Replace 'YOUR_FORMSPREE_FORM_ID' with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/xnjneapa', {
         method: 'POST',
         body: formData,
         headers: {
