@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+
+const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +26,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={figtree.variable}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class">
+          {children}
+          <footer className="border-t border-border bg-background py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div className="text-sm text-muted-foreground">
+                  © 2026 Stehnova Holdings LLC. All rights reserved.
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Real Estate Investment • Property Redevelopment • Strategic Asset Management
+                </div>
+              </div>
+            </div>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );
