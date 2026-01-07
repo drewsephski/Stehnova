@@ -35,7 +35,7 @@ export function CombinedFormSection() {
     formData.append('contactPath', contactPath)
     
     try {
-      const response = await fetch('https://formspree.io/f/xnjneapa', {
+      const response = await fetch('https://formspree.io/f/meeoyogd', {
         method: 'POST',
         body: formData,
         headers: {
